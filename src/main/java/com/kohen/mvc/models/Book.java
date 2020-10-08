@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,7 +23,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Size(min = 5, max = 200, message="Title must be 5 characters or longer.")
+    @NotEmpty(message="Please enter a title.")
     private String title;
     
     @Size(min = 5, max = 200, message="Description must be 5 characters or longer.")
@@ -30,7 +31,7 @@ public class Book {
     
     private String language;
     
-    @Min(100)
+    @NotNull(message="Please enter the number of pages.")
     private Integer numberOfPages;
     
     @Column(updatable=false)

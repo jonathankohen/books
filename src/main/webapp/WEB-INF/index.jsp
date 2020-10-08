@@ -78,8 +78,9 @@
 					<div class="form-group row px-4">
 						<label for="numberOfPages" class="col-sm-2 col-form-label">Pages:</label>
 						<div class="col-sm-10">
-							<input name="numberOfPages" type="number" class="form-control"
+							<form:input path="numberOfPages" class="form-control"
 								id="numberOfPages" min="100" step="1" placeholder="ex/ 356" />
+							<form:errors path="numberOfPages" class="text-danger" />
 						</div>
 					</div>
 					
