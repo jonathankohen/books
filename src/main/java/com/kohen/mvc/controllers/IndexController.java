@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kohen.mvc.models.Book;
 import com.kohen.mvc.services.BookService;
@@ -42,9 +40,15 @@ public class IndexController {
 	}
 	
 	@GetMapping("books/{id}")
-	public String bookDetails(@PathVariable("id") Long id, Model model) {
+	public String showBook(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("singleBook", bookService.getBook(id));
 		return "book";
+	}
+	
+	@GetMapping("books/{id}/edit")
+	public String bookDetails(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("singleBook", bookService.getBook(id));
+		return "edit";
 	}
 	
 	@PostMapping("/books/{id}/update") 

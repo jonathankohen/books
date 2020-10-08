@@ -11,44 +11,18 @@
 <title>Home</title>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row my-5">
-			<div class="col mx-auto text-center">
-				<h1 class="display-1">Books</h1>
-			</div>
-		</div>
-
+	<div class="container mt-5">
+		<a href="/" class="btn btn-dark btn-lg mb-5" role="button">Home</a>
 		<div class="row">
-			<div class="col-sm-7">
-				<table class="table table-hover table-bordered table-striped">
-					<thead class="thead-dark">
-						<tr>
-							<th>Title</th>
-							<th>Description</th>
-							<th>Language</th>
-							<th>Pages</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="book" items="${books}">
-							<tr>
-								<td><a href="books/${book.id}">${book.title}</a></td>
-								<td>${book.description}</td>
-								<td>${book.language}</td>
-								<td>${book.numberOfPages}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
-
-			<div class="col-sm-5">
-				<form:form action="/books" method="post" class="border"
-					modelAttribute="newBook">
-					<h6 class="bg-dark text-white px-2 py-3">
-						<strong>Create a Book</strong>
-					</h6>
-					<div class="form-group row px-4">
+			<div class="col">
+				<form:form action="/books/${singleBook.id}/update" method="post"
+					class="border pt-3" modelAttribute="singleBook">
+					<div class="row my-5">
+						<div class="col mx-auto text-center">
+							<h1 class="display-1">Edit Book</h1>
+						</div>
+					</div>
+					<div class="form-group row px-5">
 						<label for="title" class="col-sm-2 col-form-label">Title:</label>
 						<div class="col-sm-10">
 							<form:input path="title" class="form-control" id="title"
@@ -56,7 +30,7 @@
 							<form:errors path="title" class="text-danger" />
 						</div>
 					</div>
-					<div class="form-group row px-4">
+					<div class="form-group row px-5">
 						<label for="description" class="col-sm-2 col-form-label">Description:</label>
 						<div class="col-sm-10">
 							<form:textarea path="description" class="form-control"
@@ -65,7 +39,7 @@
 							<form:errors path="description" class="text-danger" />
 						</div>
 					</div>
-					<div class="form-group row px-4">
+					<div class="form-group row px-5">
 						<label for="desc" class="col-sm-2 col-form-label">Language:</label>
 						<div class="col-sm-10">
 							<select name="language" class="custom-select">
@@ -75,18 +49,18 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group row px-4">
+					<div class="form-group row px-5">
 						<label for="numberOfPages" class="col-sm-2 col-form-label">Pages:</label>
 						<div class="col-sm-10">
-							<input name="numberOfPages" type="number" class="form-control"
-								id="numberOfPages" min="100" step="1" placeholder="ex/ 356" />
+							<form:input path="numberOfPages" class="form-control"
+								id="numberOfPages" placeholder="ex/ 356" />
 						</div>
 					</div>
-					
-					<div class="form-group row pl-4 py-2">
-						<button type="submit"
-							class="btn btn-outline-dark btn-sm text-uppercase">Add
-							Book</button>
+					<div class="form-group row py-2">
+						<div class="col-sm-2 ml-auto">
+							<button type="submit"
+							class="btn btn-outline-dark btn-sm text-uppercase">Submit</button>
+						</div>
 					</div>
 				</form:form>
 			</div>
