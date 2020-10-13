@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.kohen.mvc.models.Book;
 
 @Repository
-public interface BookRepository extends CrudRepository<Book, Long> {}
+public interface BookRepo extends CrudRepository<Book, Long> {}

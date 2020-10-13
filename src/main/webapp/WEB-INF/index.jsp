@@ -12,6 +12,7 @@
 </head>
 <body>
 	<div class="container-fluid">
+		<a href="pubs/new">Add a Publisher</a>
 		<div class="row my-5">
 			<div class="col mx-auto text-center">
 				<h1 class="display-1">Books</h1>
@@ -27,6 +28,7 @@
 							<th>Description</th>
 							<th>Language</th>
 							<th>Pages</th>
+							<th>Publishers</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -36,6 +38,7 @@
 								<td>${book.description}</td>
 								<td>${book.language}</td>
 								<td>${book.numberOfPages}</td>
+								<td><p>${book.publishers.size()}</p></td>
 							</tr>
 						</c:forEach>
 					</tbody>
